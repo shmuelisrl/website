@@ -1,6 +1,7 @@
 backend:
   name: github
-  branch: master
+  branch: repo
+  repo: shmuelisrl/website
 
 publish_mode: editorial_workflow
 media_folder: "static/images/uploads"
