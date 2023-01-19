@@ -16,7 +16,8 @@ jobs:
         with:
           node-version: '16'
           cache: 'npm'
-          
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
           
       - name: Get npm cache directory
         id: npm-cache-dir
@@ -40,8 +41,11 @@ jobs:
       - name: Build production website
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          # Upload entire repository
+          path: './public'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
