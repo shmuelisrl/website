@@ -7,6 +7,12 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  deployments: read|write
+  id-token: read|write
+  pages: read|write
+
 jobs:
   deploy:
     runs-on: ubuntu-20.04
